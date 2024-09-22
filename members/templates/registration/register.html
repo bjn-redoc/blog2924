@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+{% block title %} Register {% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1>Register...</h1>
+    <div class="container-auth" style="border-radius: 25px;border-style: solid;padding : 20px;border-color:gray; width: 50%!important; margin: auto;">
+        <form method="post" action="{% url 'register' %}" class="space-y-3">
+            {% csrf_token %}
+            <div class="p-4">
+                <label class="text-white">Username</label>
+                <input type="text" name="username" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            <div class="p-4">
+                <label class="text-white">First Name</label>
+                <input type="text" name="first_name" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            <div class="p-4">
+                <label class="text-white">Last Name</label>
+                <input type="text" name="last_name" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            <div class="p-4">
+                <label class="text-white">E-mail</label>
+                <input type="email" name="email" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            <div class="p-4">
+                <label class="text-white">Password</label>
+                <input type="password" name="password1" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            <div class="p-4">
+                <label class="text-white">Retype Password</label>
+                <input type="password" name="password2" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="p-6 bg-red-500 text-white rounded-xl m-2">
+                            <p class="p-2">{{ error|escape }}</p>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="p-6 bg-red-500 text-white rounded-xl m-2">
+                        <p class="p-2">{{ error|escape }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="p-2 m-2">
+                {{ form.recaptcha }}
+                <br>
+            </div>
+
+            <div>
+                <button class="btn btn-secondary" >Login</button>
+            </div>
+        </form>      
+    </div>
+</div>
+<br/><br/>
+{% endblock %}

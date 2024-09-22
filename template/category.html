@@ -1,0 +1,26 @@
+{%extends 'base.html' %}
+{%block title%} {{cat.title}} {%endblock%}
+
+{%block content%}
+
+
+
+<div class="container">
+    
+    <h3>Category: {{cat.title}}</h3>
+    <!--
+    <div class="img-container">
+        <img src="/media/{{cat.image}}" class="responsive-img"alt="" style="max-height:450px;width:100%;object-fit: none;">
+    </div>
+    -->
+    <div class="collection">
+        {%for p in posts %}
+         <a href="/blog/{{p.url}}" class="collection-item">{{p.title}}</a>
+        {% empty%}
+        <h1 class="text center">No Post in this category !!!</h1>
+        {%endfor%}
+    </div>
+            
+</div>
+
+{%endblock%}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} Create A New Blog Post {% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+    <h3 class="text-align center" style="color: red;">(IMAGE Upload in post: <= [1200 x 600] px)</h3>
+    <form action="{% url 'add-posts'%}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {{form.as_p}}
+        <button class="btn btn-secondary" type="submit">Post</button>
+    </form>
+    <br><br><br>
+</div>
+{% else %}
+<h1 class="text-align center">You are not allowed here! (login required)</h1>
+{% endif %}
+{% endblock %}

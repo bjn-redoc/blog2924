@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%block title%} Search {%endblock%}
+{% block content %}
+
+    
+    {% if searched %}
+        {% for post in posts %}
+        <div class="container-custom">
+            <div class="collection">
+                <a class="collection-item" href="/blog/{{post.url}}"> <h4>{{post.title}}</h4> </a> 
+                <h6>({{post.cat.title}}) | ({{post.url}}) | {{post.pk}}</h6>               
+            </div>
+        </div>
+        {%endfor%}
+    {% else %}
+        <h1 class="text center">Not Found !!!</h1>
+    {% endif %}
+    
+
+{%endblock%}
