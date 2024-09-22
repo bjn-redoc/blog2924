@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -49,8 +48,8 @@ INSTALLED_APPS = [
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'recaptcha2',
 }
-RECAPTCHA_PUBLIC_KEY = '6Ld68UkqAAAAAAJ-f-N8RWVhUkvoTOSsLdQRzzg5'
-RECAPTCHA_PRIVATE_KEY = '6Ld68UkqAAAAAMY4YxXn7kPyKQqcl4Bk1HI1EDc8'
+RECAPTCHA_PUBLIC_KEY = ''
+RECAPTCHA_PRIVATE_KEY = ''
 
 # ckeditor 
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
