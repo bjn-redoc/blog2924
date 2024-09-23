@@ -57,7 +57,7 @@ RECAPTCHA_PRIVATE_KEY = 'key'	//from developers.google.com/recaptcha
 python manage.py createsuperuser
 
 
-========== Migrate to another site after 3 MONTHS ==========
+========== Migrate your date to another site==========	you can't keep your site on pythonanywhere by click 'Run until 3 months from to day' it will reset 
 1 file db.sqlite3 in '/home/[yoursite]/blog2924'		//file dd.sqlite3 contains 'data' and 'account' in it 
 	-> download file db.sqlite3				
 2 file media in '/home/[yoursite]/blog2924'
@@ -65,3 +65,10 @@ python manage.py createsuperuser
 	-> download file medias.zip
 3 packages.txt		//pip install -r packages.txt
 
+
+=== Backup Daily ===
+https://www.pythonanywhere.com/forums/topic/33778/
+Tasks -> Command: 	'cp /home/bjnbjn/blog2924/db.sqlite3 /home/bjnbjn/backups/mydb_$(date +%Y-%m-%dT%H:%M:%S).db' -> Create
+
+			'find /home/limaweb/backups -name 'mydb_*.db' -type f -mtime +14'
+			(This command would delete all files with filenames like mydb_*.db from /home/limaweb/backups if they were last modified more than 14 days ago.)
